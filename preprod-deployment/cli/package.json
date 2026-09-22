@@ -23,6 +23,8 @@
     "vitest": "^3.2.7"
   },
   "dependencies": {
-    "bip39": "^3.1.0"
+    "bip39": "^3.1.0",
+    "@midnight-ntwrk/compact-runtime": "^0.16.0",
+    "@midnight-ntwrk/onchain-runtime-v3": "3.0.0"
   }
 }
