@@ -99,7 +99,8 @@ export interface Config {
   readonly explorerUrl: string;
 }
 
-export const currentDir = path.resolve(new URL(import.meta.url).pathname, '..');
+import { fileURLToPath } from 'node:url';
+export const currentDir = path.resolve(fileURLToPath(import.meta.url), '..');
 
 /** Well-known seed pre-funded in the local devnet's genesis block — used instead of a faucet. */
 export const GENESIS_MINT_WALLET_SEED = '0000000000000000000000000000000000000000000000000000000000000001';

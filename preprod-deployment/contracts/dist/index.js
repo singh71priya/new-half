@@ -14,9 +14,9 @@
 // limitations under the License.
 import { CompiledContract } from "@midnight-ntwrk/midnight-js-protocol/compact-js";
 export * from "./managed/bboard/contract/index.js";
-export * from "./witnesses";
+export * from "./witnesses.js";
 import * as CompiledBBoardContract from "./managed/bboard/contract/index.js";
-import * as Witnesses from "./witnesses";
+import * as Witnesses from "./witnesses.js";
 class ContractWrapper extends CompiledBBoardContract.Contract {
     constructor() {
         super(Witnesses.witnesses);

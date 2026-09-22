@@ -268,7 +268,7 @@ async function main() {
   const cliArgs = [
     '--experimental-specifier-resolution=node',
     '--loader', 'ts-node/esm',
-    'src/launcher/deploy.ts',
+    'src/launcher/deploy-gatecheck.ts',
     network,
   ];
   if (verbose) cliArgs.push('--verbose');

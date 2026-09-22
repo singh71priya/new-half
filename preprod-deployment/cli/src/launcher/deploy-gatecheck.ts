@@ -142,8 +142,23 @@ async function main() {
   console.log("Deploying contract...");
   let success = false;
   try {
-    const adminPk = new Uint8Array(32);
-    adminPk[31] = 1;
+    const crypto = await import('node:crypto');
+    const onchainRt = await import('@midnight-ntwrk/onchain-runtime-v3');
+    const compactRt = await import('@midnight-ntwrk/compact-runtime');
+    
+    // Generate a random 32-byte secret key
+    const adminSk = crypto.randomBytes(32);
+    
+    // Compute persistentHash(adminSk) just like the contract does
+    const descriptor = new compactRt.CompactTypeBytes(32);
+    const hashResult = onchainRt.persistentHash(descriptor as any, new Uint8Array(adminSk) as any);
+    const adminPk = descriptor.fromValue(hashResult as any);
+    
+    console.log("================================================================================");
+    console.log("IMPORTANT: Save this Admin Secret Key! You need it to open/close the election.");
+    console.log("ADMIN_SK_HEX:", Buffer.from(adminSk).toString('hex'));
+    console.log("================================================================================");
+
     const metaHash = new Uint8Array(32);
     metaHash[31] = 1;
     
