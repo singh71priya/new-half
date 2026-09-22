@@ -43,4 +43,4 @@ jobs:
         env:
           # Make sure to set this secret in your repository settings!
           WALLET_SEED: ${{ secrets.WALLET_SEED }}
-        run: npm run contracts:deploy -- --network preprod
+        run: npm run contracts:deploy -- --network preprod --verbose

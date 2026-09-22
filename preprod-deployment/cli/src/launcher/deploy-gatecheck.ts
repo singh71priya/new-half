@@ -189,6 +189,13 @@ async function main() {
     success = true;
   } catch (err) {
     console.error("Deployment failed:", err);
+    // Write error to result file so deploy.mjs doesn't try to guess it
+    const resultFile = process.env.DEPLOYMENT_RESULT_FILE;
+    if (resultFile) {
+      fs.writeFileSync(resultFile, JSON.stringify({
+        error: String(err.stack || err)
+      }, null, 2));
+    }
   } finally {
     await walletProvider.stop();
     await testEnv.shutdown();

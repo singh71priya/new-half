@@ -525,16 +525,16 @@ export function classifyError(e, retryCommand) {
       { cause },
     );
   }
-  if (/managed\/bboard|contracts.*not found|missing contract/i.test(message)) {
-    return new FilesystemError(
-      {
-        title: 'Missing Compiled Contract',
-        whatHappened: 'The compiled contract artifacts were not found.',
-        howToFix: 'Build the contract first:\n\n  npm run build:contract',
-      },
-      { cause },
-    );
-  }
+  // if (/managed\/bboard|contracts.*not found|missing contract/i.test(message)) {
+  //   return new FilesystemError(
+  //     {
+  //       title: 'Missing Compiled Contract',
+  //       whatHappened: 'The compiled contract artifacts were not found.',
+  //       howToFix: 'Build the contract first:\n\n  npm run build:contract',
+  //     },
+  //     { cause },
+  //   );
+  // }
 
   // Network
   if (/enotfound|eai_again/i.test(message) || code === 'ENOTFOUND' || code === 'EAI_AGAIN') {
