@@ -20,7 +20,7 @@ jobs:
           echo "$HOME/.compact/bin" >> "$GITHUB_PATH"
 
       - name: compact update
-        run: compact update
+        run: compact update 0.31.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
