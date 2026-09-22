@@ -22,5 +22,8 @@ class ContractWrapper extends CompiledBBoardContract.Contract {
         super(Witnesses.witnesses);
     }
 }
-export const CompiledBBoardContractContract = CompiledContract.make("bboard", ContractWrapper).pipe(CompiledContract.withCompiledFileAssets("./managed/bboard"));
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+const _dirname = dirname(fileURLToPath(import.meta.url));
+export const CompiledBBoardContractContract = CompiledContract.make("bboard", ContractWrapper).pipe(CompiledContract.withCompiledFileAssets(resolve(_dirname, "managed/bboard")));
 //# sourceMappingURL=index.js.map
