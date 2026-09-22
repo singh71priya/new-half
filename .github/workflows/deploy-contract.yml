@@ -36,7 +36,7 @@ jobs:
 
       - name: Build Contract and CLI
         working-directory: ./preprod-deployment
-        run: npm run build
+        run: npm run build:contract && npm run build:cli
 
       - name: Deploy Contract
         working-directory: ./preprod-deployment
