@@ -143,7 +143,7 @@ async function main() {
   let success = false;
   try {
     const crypto = await import('node:crypto');
-    const onchainRt = await import('@midnight-ntwrk/onchain-runtime-v3');
+    const onchainRt = await import('@midnight-ntwrk/onchain-runtime-v4');
     const compactRt = await import('@midnight-ntwrk/compact-runtime');
     
     // Generate a random 32-byte secret key
