@@ -196,6 +196,7 @@ async function main() {
         error: String((err as any).stack || err)
       }, null, 2));
     }
+    process.exitCode = 1;
   } finally {
     await walletProvider.stop();
     await testEnv.shutdown();

@@ -325,6 +325,9 @@ async function main() {
     if (code === 0 && existsSync(resultFile)) {
       try {
         const result = JSON.parse(readFileSync(resultFile, 'utf-8'));
+        if (result.error) {
+          throw new Error(result.error);
+        }
         printFinalSummary(result);
       } catch (e) {
         fmt.warn(`Could not parse deployment result: ${e.message}`);
