@@ -13,9 +13,9 @@ https://half-light-private-voting-on-midnig.vercel.app/
 ## Contract Address
 | Network  | Address                          |
 |----------|----------------------------------|
-| Preprod  | `937568119b1e0345b11463d01feee6d69c5c9a223b01afd103a7c8f0d20b96c2` |
+| Preprod  | `7e42f3e5159243c39526eba7b5b0d65103be6625b1b8342112a9abde860d6e1c` |
 
-- 🔍 **Contract on Midnight Explorer:** [View Preprod Contract](https://preprod.midnightexplorer.com/contracts/0x937568119b1e0345b11463d01feee6d69c5c9a223b01afd103a7c8f0d20b96c2)
+- 🔍 **Contract on Midnight Explorer:** [View Preprod Contract](https://preprod.midnightexplorer.com/contracts/0x7e42f3e5159243c39526eba7b5b0d65103be6625b1b8342112a9abde860d6e1c)
 - ⚡ **Confirmed On-Chain Transaction:** [View Extrinsic on 1AM Explorer](https://explorer.1am.xyz/tx/0x28ec62e8f29c3a2dea4e79af7930318ea86658f4fa4f37567512eac1a875bcf7?network=preprod)
 
 ## Screenshots
