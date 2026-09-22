@@ -216,15 +216,8 @@ async function main() {
 
   const cliPackageDir = resolve(rootDir, 'cli');
   if (!existsSync(resolve(cliPackageDir, 'package.json')) || !existsSync(resolve(cliPackageDir, 'node_modules'))) {
-    printCliError(
-      new FilesystemError({
-        title: 'CLI Workspace Not Ready',
-        whatHappened: 'cli/ is missing or its dependencies are not installed.',
-        howToFix: 'Run from repo root:\n\n  npm install',
-      }),
-      verbose,
-    );
-    process.exit(1);
+    fmt.info('\nPreparing CLI workspace...');
+    execSync('npm install', { cwd: cliPackageDir, stdio: 'inherit', shell: true });
   }
   fmt.ok('CLI workspace ready');
 
@@ -265,10 +258,9 @@ async function main() {
   const resultDir = mkdtempSync(join(tmpdir(), 'bboard-deploy-'));
   const resultFile = join(resultDir, 'result.json');
 
+  // Use the built JS file instead of ts-node because ts-node is broken on Node 24
   const cliArgs = [
-    '--experimental-specifier-resolution=node',
-    '--loader', 'ts-node/esm',
-    'src/launcher/deploy-gatecheck.ts',
+    'dist/launcher/deploy-gatecheck.js',
     network,
   ];
   if (verbose) cliArgs.push('--verbose');
