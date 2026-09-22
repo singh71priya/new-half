@@ -290,6 +290,7 @@ async function main() {
       // deploy.ts writes its machine-readable result here instead of stdout, so parsing
       // doesn't depend on scraping a magic line out of otherwise free-form CLI output.
       DEPLOYMENT_RESULT_FILE: resultFile,
+      BBOARD_MANAGED_DIR: resolve(rootDir, 'contracts/dist/managed/bboard'),
     },
   });
 

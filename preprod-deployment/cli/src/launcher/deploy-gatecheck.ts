@@ -193,7 +193,7 @@ async function main() {
     const resultFile = process.env.DEPLOYMENT_RESULT_FILE;
     if (resultFile) {
       fs.writeFileSync(resultFile, JSON.stringify({
-        error: String(err.stack || err)
+        error: String((err as any).stack || err)
       }, null, 2));
     }
   } finally {
